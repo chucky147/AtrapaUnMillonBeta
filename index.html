@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atrapa un millón</title>
+    <script type="text/javascript" src="index.js"></script>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <audio src="/audio/abucheo.mp3" id="abucheo"></audio>
+    <audio src="/audio/ovacion.mp3" id="ovacion"></audio>
+    <audio src="/audio/musica.mp3" id="musica"></audio>
+    <audio src="/audio/aplauso.mp3" id="aplauso"></audio>
+    <div>
+        <div id="cabecera">
+            <span><input type="text" class="nombre" value="Jugador1"><input readonly id="dineroj1" type="text"value="1000000€" size="7"></span>
+            <button id="comenzar" onclick="empezarJuego()">Comenzar</button>
+            <span><input type="text" class="nombre" value="Jugador2"><input readonly id="dineroj2" type="text"value="1000000€" size="7"></span>
+        </div>
+
+        <div id="partida" hidden>
+            <span id="jugador"></span><div id="np"></div>
+            <div id="temas">
+                <button onclick="indicarTema(this.innerHTML)" class="tema" id="t1"></button></p>
+                <button onclick="indicarTema(this.innerHTML)" class="tema" id="t2"></button></p>
+            </div>
+            <div id="juego" hidden>
+                <p id="tema" hidden></p>
+                <p id="pregunta"></p>
+                <div id="opciones">
+                    <div><label>A</label>
+                        <p class="respuesta" id="rA"></p>
+                    </div>
+                    <div><label>B</label>
+                        <p class="respuesta" id="rB"></p>
+                    </div>
+                    <div class="divC"><label>C</label>
+                        <p class="respuesta" id="rC"></p>
+                    </div>
+                    <div class="divD"><label>D</label>
+                        <p class="respuesta" id="rD"></p>
+                    </div>
+                </div>
+            </div>
+            <div id="apuesta" hidden>                
+                    <div id="dinero"></div><div id="cronometro"><span>TIEMPO: </span><span id="m">0:</span><span id="s">00</span></div><br>
+                <div class="casilla">
+                    <label>A </label><input onblur="cambiarMax()" oninput="cambiarValorInput(this.value, 'valorA')"
+                        type="range" min="0" step="25000" id="A" value="0" class="opcion">
+                    <p class="valor" id="valorA"></p>
+                </div>
+
+                <div class="casilla">
+                    <label>B </label><input onblur="cambiarMax()" oninput="cambiarValorInput(this.value, 'valorB')"
+                        type="range" min="0" step="25000" id="B" value="0" class="opcion">
+                    <p class="valor" id="valorB"></p>
+                </div>
+
+                <div class="divC casilla">
+                    <label>C </label><input onblur="cambiarMax()" oninput="cambiarValorInput(this.value, 'valorC')"
+                        type="range" min="0" step="25000" id="C" value="0" class="opcion">
+                    <p class="valor" id="valorC"></p>
+                </div>
+
+                <div class="divD casilla"><label>D </label><input onblur="cambiarMax()"
+                        oninput="cambiarValorInput(this.value, 'valorD')" type="range" min="0" step="25000" id="D"
+                        value="0" class="opcion">
+                    <p class="valor" id="valorD"></p>
+                </div>
+                </p>
+
+                <button id="hecho" onclick="hecho()">HECHO</button></p>
+            </div>
+            <button id="terminar" hidden onclick="empezarTurno()">TERMINAR TURNO</button></p>
+            <p id="correcta" hidden></p>
+        </div>
+        <p id="fin"></p>
+    </div>
+</body>
+
+</html>
